@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.main.autoschoolapp.controllers.EditLessonController">
+    <children>
+        <Label text="Код подтверждения:" layoutX="20" layoutY="30" />
+        <TextField fx:id="verificationCodeField" layoutX="150" layoutY="25" prefWidth="200" />
+
+        <Label text="Дата начала:" layoutX="20" layoutY="80" />
+        <DatePicker fx:id="startDatePicker" layoutX="150" layoutY="75" prefWidth="200" />
+
+        <Label text="Дата окончания:" layoutX="20" layoutY="130" />
+        <DatePicker fx:id="endDatePicker" layoutX="150" layoutY="125" prefWidth="200" />
+
+        <Label text="Аудитория:" layoutX="20" layoutY="180" />
+        <ComboBox fx:id="classRoomComboBox" layoutX="150" layoutY="175" prefWidth="200" />
+
+        <Label text="Статус:" layoutX="20" layoutY="230" />
+        <ComboBox fx:id="statusComboBox" layoutX="150" layoutY="225" prefWidth="200" />
+
+        <Button fx:id="saveButton" text="Сохранить" layoutX="80" layoutY="300" prefWidth="100" />
+        <Button fx:id="cancelButton" text="Отмена" layoutX="200" layoutY="300" prefWidth="100" />
+    </children>
+</AnchorPane>

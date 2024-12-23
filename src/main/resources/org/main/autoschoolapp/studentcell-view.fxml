@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="234.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.main.autoschoolapp.controllers.ListCellController">
+    <GridPane hgap="20" vgap="15" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="474.0" minWidth="10.0" prefWidth="374.0" />
+            <ColumnConstraints maxWidth="202.0" minWidth="120.0" prefWidth="202.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+
+        <!-- ImageView for student photo -->
+        <ImageView fx:id="ImageViewPhoto" fitHeight="120.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowSpan="4" />
+
+        <!-- Attendance rate label -->
+        <Label fx:id="LabelAttendanceRate" alignment="CENTER" prefHeight="80.0" prefWidth="89.0" text="Оценка" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="4">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+
+        <!-- Student name label -->
+        <Label fx:id="LabelName" alignment="CENTER_LEFT" text="Имя студента:" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <padding>
+                <Insets left="10.0" />
+            </padding>
+        </Label>
+
+        <!-- Instructor name label -->
+        <Label fx:id="LabelInstructor" alignment="CENTER_LEFT" text="Имя инструктора" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <padding>
+                <Insets left="10.0" />
+            </padding>
+        </Label>
+
+        <!-- Max payment amount label -->
+        <Label fx:id="LabelMaxPaymentAmount" alignment="CENTER_LEFT" text="Цена:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <padding>
+                <Insets left="10.0" />
+            </padding>
+        </Label>
+    </GridPane>
+</AnchorPane>

@@ -1,0 +1,255 @@
+-- DROP SCHEMA autoschool;
+
+CREATE SCHEMA autoschool AUTHORIZATION postgres;
+
+-- DROP SEQUENCE autoschool.classroom_id_seq;
+
+CREATE SEQUENCE autoschool.classroom_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.group_category_id_seq;
+
+CREATE SEQUENCE autoschool.group_category_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.instructors_id_seq;
+
+CREATE SEQUENCE autoschool.instructors_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.lessons_id_seq;
+
+CREATE SEQUENCE autoschool.lessons_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.license_type_id_seq;
+
+CREATE SEQUENCE autoschool.license_type_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.role_id_seq;
+
+CREATE SEQUENCE autoschool.role_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.status_id_seq;
+
+CREATE SEQUENCE autoschool.status_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.student_id_seq;
+
+CREATE SEQUENCE autoschool.student_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE autoschool.vehicle_id_seq;
+
+CREATE SEQUENCE autoschool.vehicle_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;-- autoschool.classroom определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.classroom;
+
+CREATE TABLE autoschool.classroom (
+	classroom_id int4 DEFAULT nextval('autoschool.classroom_id_seq'::regclass) NOT NULL,
+	address varchar NOT NULL,
+	CONSTRAINT classroom_pk PRIMARY KEY (classroom_id)
+);
+
+
+-- autoschool.group_categories определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.group_categories;
+
+CREATE TABLE autoschool.group_categories (
+	category_id int4 DEFAULT nextval('autoschool.group_category_id_seq'::regclass) NOT NULL,
+	title varchar(200) NOT NULL,
+	CONSTRAINT group_category_pk PRIMARY KEY (category_id)
+);
+
+
+-- autoschool.instructors определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.instructors;
+
+CREATE TABLE autoschool.instructors (
+	instructor_id int4 DEFAULT nextval('autoschool.instructors_id_seq'::regclass) NOT NULL,
+	"name" varchar(200) NOT NULL,
+	CONSTRAINT instructors_pk PRIMARY KEY (instructor_id)
+);
+
+
+-- autoschool.license_types определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.license_types;
+
+CREATE TABLE autoschool.license_types (
+	license_type_id int4 DEFAULT nextval('autoschool.license_type_id_seq'::regclass) NOT NULL,
+	title varchar(200) NOT NULL,
+	CONSTRAINT license_type_pk PRIMARY KEY (license_type_id)
+);
+
+
+-- autoschool."role" определение
+
+-- Drop table
+
+-- DROP TABLE autoschool."role";
+
+CREATE TABLE autoschool."role" (
+	role_id int4 DEFAULT nextval('autoschool.role_id_seq'::regclass) NOT NULL,
+	title varchar(250) NOT NULL,
+	CONSTRAINT role_pk PRIMARY KEY (role_id)
+);
+
+
+-- autoschool.statuses определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.statuses;
+
+CREATE TABLE autoschool.statuses (
+	status_id int4 DEFAULT nextval('autoschool.status_id_seq'::regclass) NOT NULL,
+	title varchar(50) NOT NULL,
+	CONSTRAINT status_pk PRIMARY KEY (status_id)
+);
+
+
+-- autoschool.vehicles определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.vehicles;
+
+CREATE TABLE autoschool.vehicles (
+	vehicle_id int4 DEFAULT nextval('autoschool.vehicle_id_seq'::regclass) NOT NULL,
+	model varchar(200) NULL,
+	CONSTRAINT vehicle_pk PRIMARY KEY (vehicle_id)
+);
+
+
+-- autoschool.students определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.students;
+
+CREATE TABLE autoschool.students (
+	student_id varchar(10) NOT NULL,
+	"name" varchar(100) NOT NULL,
+	age int4 NOT NULL,
+	max_payment_amount numeric NULL,
+	paid_amount numeric NULL,
+	attendance_rate int4 NOT NULL,
+	notes text NULL,
+	license_type_id int4 NOT NULL,
+	instructor_id int4 NOT NULL,
+	vehicle_id int4 NOT NULL,
+	group_category_id int4 NOT NULL,
+	photo bytea NULL,
+	CONSTRAINT students_pk PRIMARY KEY (student_id),
+	CONSTRAINT students_category_fk FOREIGN KEY (group_category_id) REFERENCES autoschool.group_categories(category_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT students_instructor_fk FOREIGN KEY (instructor_id) REFERENCES autoschool.instructors(instructor_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT students_license_type_fk FOREIGN KEY (license_type_id) REFERENCES autoschool.license_types(license_type_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT students_vehicle_fk FOREIGN KEY (vehicle_id) REFERENCES autoschool.vehicles(vehicle_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+-- autoschool.users определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.users;
+
+CREATE TABLE autoschool.users (
+	first_name varchar(30) NOT NULL,
+	second_name varchar(30) NOT NULL,
+	middle_name varchar(30) NULL,
+	username varchar(50) NOT NULL,
+	"password" varchar(50) NOT NULL,
+	role_id int4 NULL,
+	CONSTRAINT user_pk PRIMARY KEY (username),
+	CONSTRAINT user_role_fk FOREIGN KEY (role_id) REFERENCES autoschool."role"(role_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+-- autoschool.lessons определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.lessons;
+
+CREATE TABLE autoschool.lessons (
+	lesson_id int4 DEFAULT nextval('autoschool.lessons_id_seq'::regclass) NOT NULL,
+	status_id int4 NOT NULL,
+	classroom_id int4 NOT NULL,
+	start_date date NOT NULL,
+	end_date date NOT NULL,
+	username varchar(50) DEFAULT NULL::character varying NULL,
+	verification_code int4 NOT NULL,
+	CONSTRAINT lessons_pk PRIMARY KEY (lesson_id),
+	CONSTRAINT lessons_classroom_fk FOREIGN KEY (classroom_id) REFERENCES autoschool.classroom(classroom_id),
+	CONSTRAINT lessons_status_fk FOREIGN KEY (status_id) REFERENCES autoschool.statuses(status_id),
+	CONSTRAINT lessons_user_fk FOREIGN KEY (username) REFERENCES autoschool.users(username) ON DELETE SET NULL ON UPDATE SET NULL
+);
+
+
+-- autoschool.lesson_attendance определение
+
+-- Drop table
+
+-- DROP TABLE autoschool.lesson_attendance;
+
+CREATE TABLE autoschool.lesson_attendance (
+	student_id varchar(10) NOT NULL,
+	lesson_id int4 NOT NULL,
+	attendance_mark int4 NULL,
+	CONSTRAINT lesson_attendance_pk PRIMARY KEY (student_id, lesson_id),
+	CONSTRAINT lesson_attendance_lesson_fk FOREIGN KEY (lesson_id) REFERENCES autoschool.lessons(lesson_id),
+	CONSTRAINT lesson_attendance_student_fk FOREIGN KEY (student_id) REFERENCES autoschool.students(student_id)
+);

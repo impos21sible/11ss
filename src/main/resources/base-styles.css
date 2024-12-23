@@ -1,0 +1,222 @@
+/* Основные стили */
+.root {
+    -fx-main-bg-color: #2C3E50; /* Тёмно-синий фон */
+    -fx-font-family: "Arial", sans-serif;
+}
+
+/* Кнопки */
+.button {
+    -fx-border-style: solid;
+    -fx-border-width: 0.8px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #2980B9; /* Голубой */
+    -fx-background-color: #3498DB; /* Светло-голубой */
+    -fx-padding: 8px 16px;
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 4, 0, 0, 3);
+    -fx-transition: all 0.3s ease;
+}
+
+.button:hover {
+    -fx-background-color: #2980B9; /* Голубой */
+    -fx-border-color: #3498DB;
+    -fx-text-fill: #ECF0F1; /* Светлый текст */
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.button:pressed {
+    -fx-background-color: #1F618D; /* Тёмно-синий */
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+}
+
+/* Поля ввода */
+.text-field {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #2980B9; /* Голубой */
+    -fx-background-color: #ECF0F1; /* Светлый фон */
+    -fx-padding: 6px 10px;
+    -fx-font-size: 12px;
+    -fx-text-fill: #2C3E50; /* Тёмно-синий текст */
+    -fx-focus-color: #3498DB; /* Светло-голубой при фокусе */
+}
+
+/* Заголовки */
+.header-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-color: #2980B9; /* Голубой */
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+
+/* Списки */
+.list-view {
+    -fx-background-color: #ECF0F1; /* Светлый фон */
+    -fx-border-color: #2980B9; /* Голубой */
+    -fx-border-width: 1px;
+    -fx-padding: 6px;
+    -fx-border-radius: 5px;
+}
+
+.list-cell {
+    -fx-font-size: 12px;
+    -fx-text-fill: #2C3E50; /* Тёмно-синий текст */
+    -fx-background-color: #D6DBDF; /* Светло-серый */
+    -fx-padding: 8px;
+}
+
+.list-cell:hover {
+    -fx-background-color: #3498DB; /* Светло-голубой при наведении */
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+}
+
+/* Панель прокрутки */
+.scroll-bar {
+    -fx-background-color: #34495E; /* Серо-синий */
+}
+
+.scroll-bar .track {
+    -fx-background-color: #BDC3C7; /* Светло-серый */
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #2980B9; /* Голубой */
+}
+
+/* Прогресс-бары */
+.progress-bar {
+    -fx-accent: #3498DB; /* Светло-голубой */
+    -fx-background-color: #ECF0F1; /* Светлый фон */
+}
+
+/* Фильтры */
+.combo-box {
+    -fx-background-color: #ECF0F1; /* Светлый фон */
+    -fx-border-color: #2980B9; /* Голубой */
+    -fx-font-size: 12px;
+    -fx-padding: 6px 10px;
+    -fx-text-fill: #2C3E50; /* Тёмно-синий текст */
+}
+
+/* Всплывающие подсказки */
+.tooltip {
+    -fx-background-color: #2980B9; /* Голубой */
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+    -fx-font-size: 12px;
+    -fx-padding: 6px;
+}
+
+/* Таблица */
+.table-view {
+    -fx-background-color: #34495E; /* Серо-синий фон */
+    -fx-border-color: #2980B9; /* Голубой */
+    -fx-border-width: 1.2px;
+    -fx-padding: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 6, 0, 2, 2);
+}
+
+.table-row-cell {
+    -fx-background-color: #D6DBDF; /* Светло-серый */
+    -fx-text-fill: #2C3E50; /* Тёмно-синий текст */
+    -fx-font-size: 12px;
+    -fx-padding: 8px;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #2980B9; /* Голубой */
+    -fx-text-fill: #FFFFFF; /* Белый текст при выделении */
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #3498DB; /* Светло-голубой при наведении */
+    -fx-text-fill: #ECF0F1; /* Светлый текст */
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Заголовки колонок */
+.table-column-header {
+    -fx-background-color: #2980B9; /* Голубой */
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+
+.table-column-header:hover {
+    -fx-background-color: #1F618D; /* Тёмно-синий */
+}
+
+.table-column-header .label {
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+}
+
+/* Тень для поля ввода */
+.text-field {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0, 0, 2);
+}
+
+/* Тень для кнопок */
+.button {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 6, 0, 1, 3);
+}
+
+/* Анимация при наведении на строки таблицы */
+.table-row-cell {
+    -fx-transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #3498DB; /* Светло-голубой при наведении */
+    -fx-text-fill: #ECF0F1; /* Светлый текст */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Иконки на кнопках */
+.button .graphic {
+    -fx-padding: 0 8px 0 0; /* Отступы между иконкой и текстом */
+    -fx-alignment: center-left; /* Выравнивание */
+}
+
+.button .text {
+    -fx-font-size: 14px;
+}
+
+/* Градиентный фон для кнопок */
+.button {
+    -fx-background-color: linear-gradient(to right, #3498DB, #2980B9);
+}
+
+/* Градиент для фона таблицы */
+.table-view {
+    -fx-background-color: linear-gradient(to bottom, #34495E, #2C3E50);
+}
+
+/* Уведомления */
+.notification {
+    -fx-background-color: #E74C3C; /* Красный для ошибок */
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+/* Успешное сообщение */
+.success-message {
+    -fx-background-color: #2ECC71; /* Зеленый для успеха */
+    -fx-text-fill: #FFFFFF; /* Белый текст */
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+/* Градиент для полосы прокрутки */
+.scroll-bar {
+    -fx-background-color: linear-gradient(to top, #BDC3C7, #34495E);
+}

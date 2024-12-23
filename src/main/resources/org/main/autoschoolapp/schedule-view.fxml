@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.main.autoschoolapp.controllers.ScheduleViewController">
+    <top>
+        <Label text="Расписание уроков" styleClass="header"/>
+    </top>
+    <center>
+        <TableView fx:id="lessonTable">
+            <columns>
+                <TableColumn fx:id="lessonIdColumn" text="ID"/>
+                <TableColumn fx:id="startDateColumn" text="Дата начала"/>
+                <TableColumn fx:id="endDateColumn" text="Дата окончания"/>
+                <TableColumn fx:id="classRoomColumn" text="Кабинет"/>
+                <TableColumn fx:id="statusColumn" text="Статус"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Добавить" onAction="#handleAdd"/>
+            <Button text="Удалить" onAction="#handleDelete"/>
+            <Button text="Распечатать" onAction="#handlePrint"/>
+        </HBox>
+    </bottom>
+</BorderPane>

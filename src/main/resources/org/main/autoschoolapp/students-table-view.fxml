@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<?import java.net.URL?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.main.autoschoolapp.controllers.StudentTableViewController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
+                    <items>
+                        <Separator halignment="LEFT" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="225.0" />
+                        <Label fx:id="LabelUser" prefWidth="120.0" text="Label" />
+                        <Button fx:id="BtnAdd" mnemonicParsing="false" onAction="#BtnAddAction" text="Добавить" />
+                        <Button fx:id="BtnUpdate" mnemonicParsing="false" onAction="#BtnUpdateAction" text="Изменить" />
+                        <Button fx:id="BtnDelete" mnemonicParsing="false" onAction="#BtnDeleteAction" text="Удалить" />
+                        <Button fx:id="BtnBack" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#BtnBackAction" text="Назад" textAlignment="RIGHT" />
+                    </items>
+                </ToolBar>
+            </top>
+            <center>
+                <BorderPane BorderPane.alignment="CENTER">
+                    <top>
+                        <FlowPane minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="200.0" rowValignment="TOP" BorderPane.alignment="CENTER">
+                            <children>
+                                <TextField fx:id="TextFieldSearch" onAction="#TextFieldSearchAction" onInputMethodTextChanged="#TextFieldTextChanged" prefHeight="25.0" prefWidth="262.0" promptText="Введите название для поиска" />
+                                <ComboBox fx:id="ComboBoxStudentType" onAction="#ComboBoxStudentTypeAction" prefWidth="150.0" promptText="тип студента" />
+                                <ComboBox fx:id="ComboBoxPaidAmount" onAction="#ComboBoxPaidAmount" prefHeight="26.0" prefWidth="143.0" promptText="Выплаченная сумма" />
+                                <ComboBox fx:id="ComboBoxSort" onAction="#ComboBoxSortAction" prefWidth="150.0" promptText="сортировка" />
+                            </children>
+                        </FlowPane>
+                    </top>
+                    <center>
+                        <TableView fx:id="TableViewStudents"
+                                   fixedCellSize="120.0"
+                                   prefHeight="400.0"
+                                   prefWidth="600.0"
+                                   tableMenuButtonVisible="true"
+                                   BorderPane.alignment="CENTER"
+                                   style="-fx-border-color: lightgray; -fx-border-width: 2px; -fx-background-color: white;">
+                            <columns>
+                                <TableColumn id="TableColumnPhoto"
+                                             fx:id="TableColumnPhoto"
+                                             prefWidth="96.0"
+                                             resizable="false"
+                                             text="Фото"
+                                             style="-fx-alignment: CENTER;">
+                                </TableColumn>
+                                <TableColumn id="TableColumnStudentId"
+                                             fx:id="TableColumnStudentId"
+                                             minWidth="0.0"
+                                             prefWidth="60.0"
+                                             text="ID "
+                                             style="-fx-alignment: CENTER;">
+                                </TableColumn>
+                                <TableColumn id="TableColumnName"
+                                             fx:id="TableColumnName"
+                                             maxWidth="1.7976931348623157E308"
+                                             prefWidth="140.0"
+                                             resizable="false"
+                                             text="Имя"
+                                             style="-fx-alignment: CENTER-LEFT;">
+                                </TableColumn>
+                                <TableColumn id="TableColumnAttendanceRate"
+                                             fx:id="TableColumnAttendanceRate"
+                                             prefWidth="130.0"
+                                             text="Посещаемость"
+                                             style="-fx-alignment: CENTER;">
+                                </TableColumn>
+                                <TableColumn id="TableColumnPaidAmount"
+                                             fx:id="TableColumnPaidAmount"
+                                             prefWidth="150.0"
+                                             text="Выплаченная сумма"
+                                             style="-fx-alignment: CENTER;">
+                                </TableColumn>
+                                <TableColumn id="TableColumnAge"
+                                             fx:id="TableColumnAge"
+                                             prefWidth="80.0"
+                                             text="Возраст"
+                                             style="-fx-alignment: CENTER;">
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+
+                    </center>
+                </BorderPane>
+            </center>
+            <bottom>
+                <Label fx:id="LabelInfo" text="Label" BorderPane.alignment="CENTER_LEFT" />
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>
